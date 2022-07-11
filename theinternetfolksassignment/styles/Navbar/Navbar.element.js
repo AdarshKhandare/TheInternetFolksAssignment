@@ -1,20 +1,27 @@
 import styled from "styled-components";
-import { layout, color } from "styled-system";
 export const NavbarContainer = styled.div`
   display: flex;
   text-align: center;
   align-items: center;
-  gap: 60px;
-  margin-left: 100px;
+  gap: 40px;
+  /* margin-left: 100px; */
+  padding: 40px 200px;
+  margin-bottom: -50px;
 `;
-export const NavbarLogo = styled.img``;
+export const NavbarLogo = styled.div``;
+
 export const NavbarMenu = styled.div`
   display: flex;
   gap: 30px;
+`;
+export const NavbarMenuA = styled.button`
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
   cursor: pointer;
   color: "grey";
   &:hover {
-    color: "#3b3054";
+    background-color: "#3b3054";
   }
   &:focus {
     color: "#3b3054";
