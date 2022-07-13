@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
   UrlShortnerButton,
@@ -13,36 +13,29 @@ import {
 } from "../../styles/UrlShortner/UrlShortner.element";
 
 const UrlShortner = () => {
-  const [longUrl, setLongUrl] = React.useState("");
+  const [longUrl, setLongUrl] = useState("");
+  const [shortenLink, setShortenLink] = useState("");
+  const [links, setLinks] = useState([]);
   const onCreate = async (e) => {
     e.preventDefault();
     const response = await axios.post(
       `https://api.shrtco.de/v2/shorten?url=${longUrl}`
     );
-    console.log(response.data.result);
-    // setLongUrl(response.data.shortUrl);
-  };
-  const getShortUrl = async (e) => {
-    const response = await axios.get(
-      `https://api.shrtco.de/v2/shorten?url=${longUrl}`
-    );
-    console.log(response);
+    console.log(response.data.result.full_short_link);
+    setShortenLink(response.data.result.full_short_link);
   };
   useEffect(() => {
-    (async () => {
-      let temp = await getShortUrl();
-      console.log(temp);
-    })();
-  }, []);
-  const onShortUrlClick = (shortUrl) => {
-    const url = document.getElementsById("copyShort");
-    navigator.clipboard.writeText(url).then(() => {
-      console.log("Copied!");
-    }),
-      (err) => {
-        console.log("Something went wrong", err);
-      };
-  };
+    setShortenLink(shortenLink);
+  }, [longUrl]);
+  // const onShortUrlClick = (shortUrl) => {
+  //   const url = document.getElementsById("copyShort");
+  //   navigator.clipboard.writeText(url).then(() => {
+  //     console.log("Copied!");
+  //   }),
+  //     (err) => {
+  //       console.log("Something went wrong", err);
+  //     };
+  // };
   return (
     <>
       <UrlShortnerContainer>
@@ -56,15 +49,11 @@ const UrlShortner = () => {
       </UrlShortnerContainer>
       <UrlShortnerOutputContainer>
         <UrlShortnerInputUrl>
-          <UrlShortnerIUrl>
-            https://styled-components.com/docs/basics#installation
-          </UrlShortnerIUrl>
+          <UrlShortnerIUrl>{longUrl}</UrlShortnerIUrl>
         </UrlShortnerInputUrl>
         <UrlShortnerOutputUrl>
-          <UrlShortnerOUrl id="copyShort">
-            https://nextjs.org/docs/basic
-          </UrlShortnerOUrl>
-          <UrlShortnerOutputUrlCopy onClick={() => onShortUrlClick()}>
+          <UrlShortnerOUrl id="copyShort">{shortenLink}</UrlShortnerOUrl>
+          <UrlShortnerOutputUrlCopy onClick={() => navigator.clipboard.writeText(shortenLink)}>
             Copy
           </UrlShortnerOutputUrlCopy>
         </UrlShortnerOutputUrl>

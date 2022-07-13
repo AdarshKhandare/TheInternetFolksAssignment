@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import AdvanceStats from "../components/AdvanceStats/AdvanceStats";
 import HeroPage from "../components/HeroPage/HeroPage";
 import UrlShortner from "../components/UrlShortner/UrlShortner";
 import styles from "../styles/Home.module.css";
@@ -14,6 +15,7 @@ export default function Home() {
       </Head>
       <HeroPage />
       <UrlShortner />
+      <AdvanceStats/>
     </div>
   );
 }
