@@ -9,6 +9,7 @@ export const UrlShortnerContainer = styled.div`
   text-align: center;
   display: flex;
   gap: 40px;
+  background-color: #ece9f2;
   background-image: url(/assets/Meteor.svg);
 `;
 

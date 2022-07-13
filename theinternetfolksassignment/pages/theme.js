@@ -5,7 +5,7 @@ export default {
   },
   colors: {
     primary: {
-      Cyan: "#000e1a",
+      Cyan: "#2acfcf",
       Dark_Violet: "#3b3054",
     },
     secondary: {
