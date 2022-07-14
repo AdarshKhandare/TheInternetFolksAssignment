@@ -4,8 +4,8 @@ import styled from "styled-components";
 const BYLToday = () => {
   return (
     <BYLTodayContainer>
-          <BYLTodayHeading>Boost your links today</BYLTodayHeading>
-          <button>Get Started</button>
+      <BYLTodayHeading>Boost your links today</BYLTodayHeading>
+      <BYLTodaybutton>Get Started</BYLTodaybutton>
     </BYLTodayContainer>
   );
 };
@@ -22,12 +22,18 @@ const BYLTodayContainer = styled.div`
   color: #fff;
 `;
 const BYLTodayHeading = styled.p`
-    font-size: 30px;
-    font-weight: 700;
-
-`
+  font-size: 30px;
+  font-weight: 700;
+`;
 const BYLTodaybutton = styled.button`
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-`
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  background-color: #2acfcf;
+  &:hover {
+
+    background-color: #6effff;
+  }
+
+`;

@@ -19,9 +19,9 @@ export const NavbarMenuA = styled.button`
   border: none;
   font-size: 18px;
   cursor: pointer;
-  color: "grey";
+  color: white;
   &:hover {
-    background-color: "#3b3054";
+    background-color: "#2acfcf";
   }
   &:focus {
     color: "#3b3054";
