@@ -26,16 +26,7 @@ const UrlShortner = () => {
   };
   useEffect(() => {
     setShortenLink(shortenLink);
-  }, [longUrl]);
-  // const onShortUrlClick = (shortUrl) => {
-  //   const url = document.getElementsById("copyShort");
-  //   navigator.clipboard.writeText(url).then(() => {
-  //     console.log("Copied!");
-  //   }),
-  //     (err) => {
-  //       console.log("Something went wrong", err);
-  //     };
-  // };
+  }, [longUrl, shortenLink]);
   return (
     <>
       <UrlShortnerContainer>
@@ -54,9 +45,10 @@ const UrlShortner = () => {
           </UrlShortnerInputUrl>
           <UrlShortnerOutputUrl>
             <UrlShortnerOUrl id="copyShort">{shortenLink}</UrlShortnerOUrl>
-            <UrlShortnerOutputUrlCopy links={links}
+            <UrlShortnerOutputUrlCopy
+              links={links}
               onClick={() =>
-                navigator.clipboard.writeText(shortenLink) && setLinks(!links) 
+                navigator.clipboard.writeText(shortenLink) && setLinks(!links)
               }
             >
               {links ? "Copied!" : "Copy"}
