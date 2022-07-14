@@ -15,7 +15,7 @@ import {
 const UrlShortner = () => {
   const [longUrl, setLongUrl] = useState("");
   const [shortenLink, setShortenLink] = useState("");
-  const [links, setLinks] = useState([]);
+  const [links, setLinks] = useState(false);
   const onCreate = async (e) => {
     e.preventDefault();
     const response = await axios.post(
@@ -47,17 +47,23 @@ const UrlShortner = () => {
         />
         <UrlShortnerButton onClick={onCreate}>Shorten It!</UrlShortnerButton>
       </UrlShortnerContainer>
-      <UrlShortnerOutputContainer>
-        <UrlShortnerInputUrl>
-          <UrlShortnerIUrl>{longUrl}</UrlShortnerIUrl>
-        </UrlShortnerInputUrl>
-        <UrlShortnerOutputUrl>
-          <UrlShortnerOUrl id="copyShort">{shortenLink}</UrlShortnerOUrl>
-          <UrlShortnerOutputUrlCopy onClick={() => navigator.clipboard.writeText(shortenLink)}>
-            Copy
-          </UrlShortnerOutputUrlCopy>
-        </UrlShortnerOutputUrl>
-      </UrlShortnerOutputContainer>
+      {longUrl && (
+        <UrlShortnerOutputContainer>
+          <UrlShortnerInputUrl>
+            <UrlShortnerIUrl>{longUrl}</UrlShortnerIUrl>
+          </UrlShortnerInputUrl>
+          <UrlShortnerOutputUrl>
+            <UrlShortnerOUrl id="copyShort">{shortenLink}</UrlShortnerOUrl>
+            <UrlShortnerOutputUrlCopy links={links}
+              onClick={() =>
+                navigator.clipboard.writeText(shortenLink) && setLinks(!links) 
+              }
+            >
+              {links ? "Copied!" : "Copy"}
+            </UrlShortnerOutputUrlCopy>
+          </UrlShortnerOutputUrl>
+        </UrlShortnerOutputContainer>
+      )}
     </>
   );
 };

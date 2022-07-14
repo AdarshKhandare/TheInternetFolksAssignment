@@ -14,16 +14,14 @@ export const NavbarMenu = styled.div`
   display: flex;
   gap: 30px;
 `;
-export const NavbarMenuA = styled.button`
-  background-color: transparent;
-  border: none;
+export const NavbarMenuA = styled.p`
+  color: #bfbfbf;
   font-size: 18px;
   cursor: pointer;
-  color: white;
   &:hover {
-    background-color: "#2acfcf";
+    color: "#2acfcf";
   }
   &:focus {
-    color: "#3b3054";
+    color: "#2acfcf";
   }
 `;

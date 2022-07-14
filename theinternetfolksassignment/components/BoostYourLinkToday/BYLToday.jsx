@@ -26,7 +26,7 @@ const BYLTodayHeading = styled.p`
   font-weight: 700;
 `;
 const BYLTodaybutton = styled.button`
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   border: none;
   color: #fff;

@@ -73,14 +73,6 @@ export const UrlShortnerOutputUrlCopy = styled.button`
   width: 100px;
   border-radius: 8px;
   font-size: 18px;
-  background-color: #6effff;
-  &:hover {
-    background-color: #2acfcf;
-  }
-  &::before {
-    background-color: #6effff;
-  }
-  &::after {
-    background-color: #3b3054;
-  }
+  background-color: ${(props) => (props.links ? "#3b3054" : "#6effff")};
+
 `;

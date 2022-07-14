@@ -13,9 +13,9 @@ const Navbar = () => {
         <Image src="/assets/logo.svg" alt="logo" width="130px" height="60" />
       </NavbarLogo>
       <NavbarMenu>
-        <NavbarMenuA>Features</NavbarMenuA>
-        <NavbarMenuA>Pricing</NavbarMenuA>
-        <NavbarMenuA>Resources</NavbarMenuA>
+        <NavbarMenuA >Features</NavbarMenuA>
+        <NavbarMenuA >Pricing</NavbarMenuA>
+        <NavbarMenuA >Resources</NavbarMenuA>
       </NavbarMenu>
     </NavbarContainer>
   );
